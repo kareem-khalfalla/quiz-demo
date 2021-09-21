@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'config.php';
 
@@ -7,7 +7,7 @@ session_start();
 error_reporting(0);
 
 if (isset($_SESSION['username'])) {
-    header("Location: adminpanel.php");
+	header("Location: adminpanel.php");
 }
 
 if (isset($_POST['submit'])) {
@@ -28,6 +28,7 @@ if (isset($_POST['submit'])) {
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,8 +38,8 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
-	
-<body >
+
+<body>
 	<div align="center" class="container">
 		<form action="" method="POST" class="login-email">
 			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
@@ -51,8 +52,9 @@ if (isset($_POST['submit'])) {
 			<div class="input-group">
 				<button name="submit" class="btn">Login</button>
 			</div>
-		
+
 		</form>
 	</div>
 </body>
+
 </html>
