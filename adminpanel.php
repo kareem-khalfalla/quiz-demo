@@ -20,7 +20,6 @@ if (isset($_POST["submit"])) {
 
 $myFile = fopen($filePath, "r") or die("Unable to open file!");
 
-$arr = [];
 while (!feof($myFile)) {
 	$str = fgets($myFile);
 	$data = explode('|', $str);
