@@ -1,8 +1,9 @@
 <?php
 
+session_start();
+
 include 'config.php';
 
-session_start();
 
 error_reporting(0);
 
