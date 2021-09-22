@@ -2,10 +2,13 @@
 
 include 'config.php';
 
-if (isset($_POST["submit"])) {
+$filePath = '';
 
+if (isset($_FILES['fileupload'])) {
 	$filePath = STORAGE_PATH . DIRECTORY_SEPARATOR . $_FILES['fileupload']['name'];
+}
 
+if (isset($_POST["submit"])) {
 	if (
 		move_uploaded_file(
 			$_FILES['fileupload']['tmp_name'],
@@ -18,43 +21,47 @@ if (isset($_POST["submit"])) {
 	}
 }
 
-$myFile = fopen($filePath, "r") or die("Unable to open file!");
+if (file_exists($filePath)) {
+	# code...
+	$myFile = fopen($filePath, "r") or die("Unable to open file!");
 
-while (!feof($myFile)) {
-	$str = fgets($myFile);
-	$data = explode('|', $str);
+	while (!feof($myFile)) {
+		$str = fgets($myFile);
+		$data = explode('|', $str);
 
-	$question = $data[0];
+		$question = $data[0];
 
-	if (count($data) == 1) {
-		break;
-	}
+		if (count($data) == 1) {
+			break;
+		}
 
-	$answersString = $data[1];
-	$trueAnswer = $data[2];
-	$choices = explode(',', $answersString);
+		$answersString = $data[1];
+		$trueAnswer = $data[2];
+		$choices = explode(',', $answersString);
 
-	$choix1 = $choices[0];
-	$choix2 = $choices[1];
-	$choix3 = $choices[2];
+		$choix1 = $choices[0];
+		$choix2 = $choices[1];
+		$choix3 = $choices[2];
 
-	$trueAnswer = str_replace('\'', '"', $trueAnswer);
-	$question = str_replace('\'', '"', $question);
-	$choix1 = str_replace('\'', '"', $choix1);
-	$choix2 = str_replace('\'', '"', $choix2);
-	$choix3 = str_replace('\'', '"', $choix3);
+		$trueAnswer = str_replace('\'', '"', $trueAnswer);
+		$question = str_replace('\'', '"', $question);
+		$choix1 = str_replace('\'', '"', $choix1);
+		$choix2 = str_replace('\'', '"', $choix2);
+		$choix3 = str_replace('\'', '"', $choix3);
 
-	$sql = "INSERT INTO `quiz` SET 
+		$sql = "INSERT INTO `quiz` SET 
 		`question` = '$question',
 		`c1` = '$trueAnswer',
 		`c2` = '$choix1',
 		`c3` = '$choix2',
 		`answer` = '$choix3'
 	";
-	mysqli_query($con, $sql);
+		mysqli_query($con, $sql);
+	}
+	
+	fclose($myFile);
 }
 
-fclose($myFile);
 
 ?>
 <html>
