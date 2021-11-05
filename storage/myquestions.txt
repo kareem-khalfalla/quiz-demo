@@ -1,0 +1,9 @@
+Quels sont les séparateurs utilisés par la méthode GET pour ajouter les données à l'URL ?|"%" Pour séparer l'adresse et "&" pour les données,"?" Pour séparer l'adresse et "&" pour les données,"%" Pour séparer l'adresse et ";" pour les données|"?" Pour séparer l'adresse et "&" pour les données
+reset() ?|libère les octets occupés par un tableau,sert à vider un tableau,place le pointeur au début du tableau|place le pointeur au début du tableau
+En quoi consiste la surcharge en PHP Orienté Objet ?|à redéfinir les méthodes et attributs d'une classe mère,à ajouter des méthodes et attributs à une classe fille,à hériter des méthodes et attributs d'une classe mère|à redéfinir les méthodes et attributs d'une classe mère
+Pour envoyer un email au format HTML en PHP il faut?|indiquer l'emplacement du fichier html à la fonction mail(),utiliser la fonction mail_html(),créer un header au content-type : text/html|créer un header au content-type : text/html
+Comment créer une session qui permettra d'utiliser des variables de session ?|var_session(),session_start(),session()|session_start()
+Que fait array_pop() ?|retourne le dernier élément d'un tableau sans le supprimer,retourne le dernier élément d'un tableau et le supprime,retourne le premier élément d'un tableau et le supprime|retourne le dernier élément d'un tableau et le supprime
+a quoi sert "continue" à l'intérieur d'une boucle "for" ou "foreach" ?|sort de la boucle itérative,demande a poursuivre le code même en cas d'erreur,passe à l'itération suivante|passe à l'itération suivante
+Comment préciser quel script sera lancé par le bouton submit d'un formulaire  ?|form action="page.php",form script="page.php",form submit="page.php"|form action="page.php"
+round(4,6) affiche  ?|4.7,5,4|5
